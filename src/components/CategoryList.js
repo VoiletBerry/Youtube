@@ -28,8 +28,11 @@ const CategoryList = () => {
 
   return (
     <div className="flex mt-2 ml-5">
-      {list.map((item) => (
-        <p className="mx-1 px-2 py-1 boeder  text-center rounded-lg bg-gray-300">
+      {list.map((item, index) => (
+        <p
+          key={index}
+          className="mx-1 px-2 py-1 boeder  text-center rounded-lg bg-gray-300"
+        >
           {item}
         </p>
       ))}

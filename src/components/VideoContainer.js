@@ -14,8 +14,6 @@ const VideoContainer = () => {
     setVideos(json.items);
   };
 
-  console.log(videos);
-
   useEffect(() => {
     getVideos();
   }, []);
@@ -28,8 +26,8 @@ const VideoContainer = () => {
     <div className="m-5  flex flex-wrap">
       {videos.map((item) => {
         return (
-          <Link to={"/watch?v=" + item.id}>
-            <VideoCard key={item.id} data={item} />
+          <Link key={item.id} to={"/watch?v=" + item.id}>
+            <VideoCard data={item} />
           </Link>
         );
       })}
