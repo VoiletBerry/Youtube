@@ -6,8 +6,6 @@ import CommentsList from "./CommentsList";
 const CommentsContainer = () => {
   const [commentData, setCommentData] = useState(COMMENTS_DATA);
 
-  console.log(commentData);
-
   return (
     <div className="mt-5 w-2/3">
       <h1 className="font-bold my-2 "> Comments : </h1>

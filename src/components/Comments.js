@@ -3,8 +3,6 @@ import React from "react";
 const Comments = ({ info }) => {
   const { name, description, img } = info;
 
-  console.log("info from comments", info);
-
   return (
     <div className="p-2 my-2 shadow-lg w-full rounded-lg bg-gray-100">
       <div className="flex">

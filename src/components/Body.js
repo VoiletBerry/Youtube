@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Maincontainer } from "./Maincontainer";
 import SideBar from "./SideBar";
 import { Outlet } from "react-router-dom";
 

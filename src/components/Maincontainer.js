@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CategoryList from "./CategoryList";
 import VideoContainer from "./VideoContainer";
 import { useDispatch } from "react-redux";
 import { openSideBar } from "../ReduxStore/sideBarSlice";
+import { VideoContext } from "../Context/VideoContext";
 
 export const Maincontainer = () => {
+  const [videos, setVideos] = useState();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -13,8 +16,10 @@ export const Maincontainer = () => {
 
   return (
     <div>
-      <CategoryList />
-      <VideoContainer />
+      <VideoContext.Provider value={{ videos, setVideos }}>
+        <CategoryList />
+        <VideoContainer />
+      </VideoContext.Provider>
     </div>
   );
 };

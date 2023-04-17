@@ -46,7 +46,38 @@ export const COMMENTS_DATA = [
     description:
       " I actually thought the pacing was one of the best things about it. It kept me on the edge of my seat the whole time.",
     img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
-    replies: [],
+    replies: [
+      {
+        name: "Khawachi",
+        description:
+          "I thought the pacing was off and the story wasn't very compelling.",
+        img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
+        replies: [
+          {
+            name: "Khawachi",
+            description:
+              "I thought the pacing was off and the story wasn't very compelling.",
+            img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
+            replies: [
+              {
+                name: "Khawachi",
+                description:
+                  "I thought the pacing was off and the story wasn't very compelling.",
+                img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
+                replies: [],
+              },
+            ],
+          },
+          {
+            name: "Khawachi",
+            description:
+              "I thought the pacing was off and the story wasn't very compelling.",
+            img: "https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/16:9/w_2560%2Cc_limit/1521-WIRED-Cat.jpeg",
+            replies: [],
+          },
+        ],
+      },
+    ],
   },
   {
     name: "elfo",

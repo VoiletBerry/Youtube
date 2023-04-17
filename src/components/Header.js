@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../ReduxStore/sideBarSlice";
-import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { SEARCH, YOUTUBE_VIDEOS_KEYWORD } from "../utils/constants";
 import { storedCache } from "../ReduxStore/searchCacheSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [dropDown, setDropDown] = useState(false);
@@ -18,20 +19,27 @@ const Header = () => {
   };
 
   const getSearchSuggestion = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-    const json = await data.json();
-    setSearchSuggestion(json[1]);
-    dispatch(
-      storedCache({
-        [searchQuery]: json[1],
-      })
-    );
+    if (searchQuery) {
+      const arr = [];
+      const data = await fetch(SEARCH + searchQuery);
+      const json = await data.text();
+
+      json.split("[").forEach((ele, index) => {
+        if (!ele.split('"')[1] || index === 1) return;
+        return arr.push(ele.split('"')[1]);
+      });
+
+      setSearchSuggestion(arr);
+      dispatch(
+        storedCache({
+          [searchQuery]: arr,
+        })
+      );
+    }
   };
 
   useEffect(() => {
     const searchResult = setTimeout(() => {
-      // console.log("cacheData => ", cacheData);
-      // console.log("cacheData[searchQuery]  => ", cacheData[searchQuery]);
       if (cacheData[searchQuery]) {
         setSearchSuggestion(cacheData[searchQuery]);
       } else {
@@ -46,17 +54,28 @@ const Header = () => {
   return (
     <div className="grid grid-flow-col p-2 m-2 shadow-lg">
       <div className="flex p-2 m-2 col-span-4">
-        <img
+        <svg
+          fill="none"
           className="h-8"
-          alt="hamburger icon"
+          stroke="currentColor"
+          stroke-width="1.5"
           onClick={() => HandleToggleSideBar()}
-          src="https://cdn.icon-icons.com/icons2/2761/PNG/512/menu_hamburger_burger_icon_176431.png"
-        />
-        <img
-          className="h-8 ml-2"
-          alt="logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_Logo_%282013-2017%29.svg/1024px-YouTube_Logo_%282013-2017%29.svg.png"
-        />
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+          ></path>
+        </svg>
+        <a href="/">
+          <img
+            className="h-8 ml-2"
+            alt="logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_Logo_%282013-2017%29.svg/1024px-YouTube_Logo_%282013-2017%29.svg.png"
+          />
+        </a>
       </div>
       <div className="m-2 col-span-6">
         <div>
@@ -66,7 +85,7 @@ const Header = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setDropDown(true)}
-            onBlur={() => setDropDown(false)}
+            // onBlur={() => setDropDown(false)}
             type="text"
           />
           <button className="h-9 w-12 bg-gray-100 border rounded-r-full text-center border-gray-200">
@@ -76,11 +95,11 @@ const Header = () => {
         {dropDown && (
           <div className=" bg-white absolute mx-3 my-1 p-2 shadow-lg rounded-lg w-[32rem] border-gray-200">
             <ul>
-              {searchSuggestion.map((item, index) => {
+              {searchSuggestion.slice(0, -1).map((item, index) => {
                 return (
-                  <li key={index} className="ml-1 hover:bg-gray-100 p-1">
-                    🔍 {item}
-                  </li>
+                  <Link to={"/searchResult?result=" + item} key={index}>
+                    <li className="ml-1 hover:bg-gray-100 p-1">🔍 {item}</li>
+                  </Link>
                 );
               })}
             </ul>

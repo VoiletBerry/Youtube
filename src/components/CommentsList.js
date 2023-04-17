@@ -2,8 +2,6 @@ import React from "react";
 import Comments from "./Comments";
 
 const CommentsList = ({ data }) => {
-  console.log("data from comments list", data);
-
   return (
     <div className="w-full">
       {data.map((item) => {
