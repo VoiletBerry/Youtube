@@ -7,7 +7,7 @@ const CommentsContainer = () => {
   const [commentData, setCommentData] = useState(COMMENTS_DATA);
 
   return (
-    <div className="mt-5 w-[1100px]">
+    <div className="mt-5 w-[1250px]">
       <h1 className="font-bold my-2 "> Comments : </h1>
       <CommentsList data={commentData} />
     </div>

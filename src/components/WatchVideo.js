@@ -37,7 +37,6 @@ const WatchVideo = () => {
     );
     const json = await data.json();
     setRelatedVideos(json?.items);
-    // console.log("related videos", json);
   };
 
   if (relatedVideos.length === 0) {
@@ -45,11 +44,11 @@ const WatchVideo = () => {
   }
 
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row justify-center">
       <div className="flex flex-col m-5 p-2">
         <div>
           <iframe
-            width="1100"
+            width="1250"
             z
             height="625"
             src={"https://www.youtube.com/embed/" + searchParams.get("v")}

@@ -1,6 +1,8 @@
 import React from "react";
+import { getViewCount } from "../utils/helper";
 
 const VideoCard = ({ data }) => {
+  console.log(data);
   const { snippet } = data;
   const { title, thumbnails, channelTitle } = snippet;
 
@@ -10,7 +12,9 @@ const VideoCard = ({ data }) => {
       <p className="font-bold">{title}</p>
       <div className="flex flex-col justify-end">
         <p className="text-lg">{channelTitle}</p>
-        <p className="text-lg">{data?.statistics?.viewCount} views</p>
+        <p className="text-lg">
+          {getViewCount(data?.statistics?.viewCount)} Views
+        </p>
       </div>
     </div>
   );

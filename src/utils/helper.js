@@ -24,3 +24,17 @@ export function getTimePassedSince(dateString) {
     return seconds + " second" + (seconds > 1 ? "s" : "") + " ago";
   }
 }
+
+export function getViewCount(number) {
+  if (number >= 1000000) {
+    return (number / 1000000).toFixed(1) + "M";
+  } else if (number >= 500000) {
+    return (number / 1000).toFixed(0) + "k";
+  } else if (number >= 100000) {
+    return (number / 1000).toFixed(1) + "k";
+  } else if (number >= 1000) {
+    return (number / 1000).toFixed(0) + "k";
+  } else {
+    return number;
+  }
+}
