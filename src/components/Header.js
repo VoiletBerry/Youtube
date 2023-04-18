@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggle } from "../ReduxStore/sideBarSlice";
-import { SEARCH, YOUTUBE_VIDEOS_KEYWORD } from "../utils/constants";
+import { SEARCH, logo } from "../utils/constants";
 import { storedCache } from "../ReduxStore/searchCacheSlice";
 import { Link } from "react-router-dom";
 
@@ -69,13 +69,9 @@ const Header = () => {
             d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
           ></path>
         </svg>
-        <a href="/">
-          <img
-            className="h-8 ml-2"
-            alt="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_Logo_%282013-2017%29.svg/1024px-YouTube_Logo_%282013-2017%29.svg.png"
-          />
-        </a>
+        <Link to="/">
+          <img className="h-8 ml-2" alt="logo" src={logo} />
+        </Link>
       </div>
       <div className="m-2 col-span-6">
         <div>
@@ -85,7 +81,6 @@ const Header = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setDropDown(true)}
-            // onBlur={() => setDropDown(false)}
             type="text"
           />
           <button className="h-9 w-12 bg-gray-100 border rounded-r-full text-center border-gray-200">
@@ -93,7 +88,10 @@ const Header = () => {
           </button>
         </div>
         {dropDown && (
-          <div className=" bg-white absolute mx-3 my-1 p-2 shadow-lg rounded-lg w-[32rem] border-gray-200">
+          <div
+            className=" bg-white absolute mx-3 my-1 p-2 shadow-lg rounded-lg w-[32rem] border-gray-200 "
+            onBlur={() => setDropDown(false)}
+          >
             <ul>
               {searchSuggestion.slice(0, -1).map((item, index) => {
                 return (

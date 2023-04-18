@@ -7,6 +7,12 @@ export const YOUTUBE_LIVE_API =
 export const YOUTUBE_VIDEOS_KEYWORD =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=";
 
+export const ONE_VIDEO_DETAILS =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=";
+
+export const RELATED_VIDEOS =
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&relatedToVideoId=";
+
 export const SEARCH =
   "https://clients1.google.com/complete/search?client=youtube&gs_ri=youtube&ds=yt&q=";
 

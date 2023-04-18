@@ -45,15 +45,16 @@ const appRouter = createBrowserRouter([
             path: "/",
             element: <Maincontainer />,
           },
+
           {
-            path: "watch",
-            element: <WatchVideo />,
+            path: "searchResult",
+            element: <SearchResult />,
           },
         ],
       },
       {
-        path: "searchResult",
-        element: <SearchResult />,
+        path: "watch",
+        element: <WatchVideo />,
       },
     ],
   },

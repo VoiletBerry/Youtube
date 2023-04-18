@@ -12,7 +12,7 @@ const VideoContainer = () => {
       YOUTUBE_VIDEOS_URL + process.env.REACT_APP_YOUTUBE_API_KEY
     );
     const json = await data.json();
-    console.log(json);
+
     setVideos(json.items);
   };
 
@@ -25,7 +25,7 @@ const VideoContainer = () => {
   }
 
   return videos[0].id.videoId ? (
-    <div className="m-5  flex flex-wrap">
+    <div className="m-5 flex flex-wrap">
       {videos.map((item) => {
         return (
           <Link key={item.id.videoId} to={"/watch?v=" + item.id.videoId}>
@@ -35,7 +35,7 @@ const VideoContainer = () => {
       })}
     </div>
   ) : (
-    <div className="m-5  flex flex-wrap">
+    <div className="m-5 flex flex-wrap">
       {videos.map((item) => {
         return (
           <Link key={item.id} to={"/watch?v=" + item.id}>

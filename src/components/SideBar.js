@@ -12,7 +12,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className="mx-2 w-44 p-2 shadow-lg">
+    <div className="mx-2 w-52 h-full p-2 shadow-lg ">
       <ul>
         <li>
           <Link to="/">🏠 Home</Link>

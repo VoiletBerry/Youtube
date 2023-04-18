@@ -15,7 +15,7 @@ export const Maincontainer = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ml-5">
       <VideoContext.Provider value={{ videos, setVideos }}>
         <CategoryList />
         <VideoContainer />
