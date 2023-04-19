@@ -2,7 +2,6 @@ import React from "react";
 import { getViewCount } from "../utils/helper";
 
 const VideoCard = ({ data }) => {
-  console.log(data);
   const { snippet } = data;
   const { title, thumbnails, channelTitle } = snippet;
 

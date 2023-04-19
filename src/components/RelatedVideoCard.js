@@ -2,15 +2,11 @@ import React from "react";
 import { getTimePassedSince } from "../utils/helper";
 
 const RelatedVideoCard = ({ info }) => {
-  console.log("info", info);
-
   const { id } = info;
   const { videoId } = id;
   const { snippet } = info;
   const { channelTitle, publishedAt, title } = snippet;
   const { thumbnails } = snippet;
-
-  console.log(videoId);
 
   return (
     <div className=" m-2 p-2 border rounded-lg flex flex-row">

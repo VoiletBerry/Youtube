@@ -16,5 +16,10 @@ export const RELATED_VIDEOS =
 export const SEARCH =
   "https://clients1.google.com/complete/search?client=youtube&gs_ri=youtube&ds=yt&q=";
 
+export const COMMENT_THREAD_LIST =
+  "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&order=relevance&videoId=";
+
+// -------------------------------------------------------------------------------------------------------------------
+
 export const logo =
   "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/YouTube_Logo_%282013-2017%29.svg/1024px-YouTube_Logo_%282013-2017%29.svg.png";
