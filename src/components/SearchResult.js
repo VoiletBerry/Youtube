@@ -8,7 +8,7 @@ import { openSideBar } from "../ReduxStore/sideBarSlice";
 
 const SearchResult = () => {
   const [searchParams] = useSearchParams();
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState();
 
   const dispatch = useDispatch();
 
@@ -31,7 +31,7 @@ const SearchResult = () => {
     setSearchResults(json?.items);
   };
 
-  return searchResults.length === 0 ? null : (
+  return !searchResults ? null : (
     <div className="col-span-2">
       <div className="flex flex-col">
         {searchResults.map((item) => {

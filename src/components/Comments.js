@@ -28,13 +28,13 @@ const Comments = ({ info }) => {
             <i
               className=" fa fa-thumbs-up mt-1"
               onclick="myFunction(this)"
-              class="fa fa-thumbs-up"
+              class="fa fa-thumbs-up mt-1"
             ></i>
             <p className="ml-2 ">{likeCount}</p>
             <i
               className="ml-2 fa fa-thumbs-down mt-1"
               onclick="myFunction(this)"
-              class="fa fa-thumbs-up"
+              class="fa fa-thumbs-down mt-1 ml-2"
             ></i>
           </div>
         </div>
