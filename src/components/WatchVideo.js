@@ -8,7 +8,7 @@ import RelateVideosList from "./RelateVideosList";
 
 const WatchVideo = () => {
   const [searchParams] = useSearchParams();
-  const [relatedVideos, setRelatedVideos] = useState([]);
+  const [relatedVideos, setRelatedVideos] = useState();
 
   const dispatch = useDispatch();
 
@@ -39,7 +39,7 @@ const WatchVideo = () => {
     setRelatedVideos(json?.items);
   };
 
-  if (relatedVideos.length === 0) {
+  if (!relatedVideos) {
     return null;
   }
 

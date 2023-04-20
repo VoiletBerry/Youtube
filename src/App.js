@@ -3,15 +3,11 @@ import { Provider } from "react-redux";
 import store from "./ReduxStore/store";
 import Body from "./components/Body";
 import Header from "./components/Header";
-import {
-  BrowserRouter,
-  Outlet,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Maincontainer } from "./components/Maincontainer";
 import WatchVideo from "./components/WatchVideo";
 import SearchResult from "./components/SearchResult";
+import Error from "./components/Error";
 
 const App = () => {
   return (
@@ -36,6 +32,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -45,7 +42,6 @@ const appRouter = createBrowserRouter([
             path: "/",
             element: <Maincontainer />,
           },
-
           {
             path: "searchResult",
             element: <SearchResult />,

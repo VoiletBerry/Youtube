@@ -29,7 +29,6 @@ const SearchResult = () => {
     );
     const json = await data.json();
     setSearchResults(json?.items);
-    console.log(json?.items);
   };
 
   return searchResults.length === 0 ? null : (

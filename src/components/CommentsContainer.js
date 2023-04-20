@@ -5,7 +5,7 @@ import { COMMENT_THREAD_LIST } from "../utils/constants";
 import { useSearchParams } from "react-router-dom";
 
 const CommentsContainer = () => {
-  const [commentsDetail, setCommentsDetails] = useState([]);
+  const [commentsDetail, setCommentsDetails] = useState();
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
@@ -21,9 +21,10 @@ const CommentsContainer = () => {
     );
     const json = await data.json();
     setCommentsDetails(json?.items);
+    console.log("comment data", json?.items);
   };
 
-  return commentsDetail.length === 0 ? null : (
+  return !commentsDetail ? null : (
     <div className="mt-5 w-[1250px]">
       <h1 className="font-bold my-2 "> Comments : </h1>
       <CommentsList details={commentsDetail} />

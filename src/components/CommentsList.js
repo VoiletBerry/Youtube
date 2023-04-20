@@ -4,7 +4,6 @@ import CommentsDetails from "./CommentsDetails";
 import CommentRepliesDetails from "./CommentRepliesDetails";
 
 const CommentsList = ({ details }) => {
-  console.log("details", details);
   return (
     <div className="w-full">
       {details.map((item) => {

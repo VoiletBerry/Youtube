@@ -96,7 +96,12 @@ const Header = () => {
               {searchSuggestion.slice(0, -1).map((item, index) => {
                 return (
                   <Link to={"/searchResult?result=" + item} key={index}>
-                    <li className="ml-1 hover:bg-gray-100 p-1">🔍 {item}</li>
+                    <li
+                      className="ml-1 hover:bg-gray-100 p-1"
+                      onClick={() => setSearchQuery(item)}
+                    >
+                      🔍 {item}
+                    </li>
                   </Link>
                 );
               })}

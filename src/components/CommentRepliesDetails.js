@@ -2,7 +2,6 @@ import React from "react";
 import Comments from "./Comments";
 
 const CommentRepliesDetails = ({ data }) => {
-  console.log("nested comments", data);
   const { comments } = data;
   return (
     <div>
